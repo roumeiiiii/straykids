@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Stray kids's Questionnaire</title>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var totalScore = 0;
+                var answeredQuestions = 0;
+        
+                $('.question').each(function() {
+                    var question = $(this);
+                    $('.answer', question).click(function() {
+                        if (!question.hasClass('answered')) {
+                            $('.answer', question).prop('disabled', true); // Disable all answers in the same question
+                            $(this).addClass('selected');
+        
+                            var isCorrect = $(this).hasClass('correct');
+                            $(this).addClass(isCorrect ? 'correct' : 'wrong');
+        
+                            if (isCorrect) {
+                                totalScore++;
+                            }
+        
+                            question.addClass('answered');
+                            disableHoverEffect(question);
+        
+                            answeredQuestions++;
+        
+                            if (answeredQuestions === 5) {
+                                updateTotalScore();
+                            }
+                        }
+                    });
+                });
+        
+                function disableHoverEffect(question) {
+                    $('.answer', question).off('mouseenter mouseleave'); // Disable hover effect for other questions
+                }
+        
+                function updateTotalScore() {
+                    var message = '<strong>Your Total Score: ' + totalScore + '/5</strong><br>';
+        
+                    if (totalScore === 0) {
+                        message += "<i>Oops! It looks like you're just getting started on your Stray Kids journey. Keep exploring their amazing world!</i>";
+                    } else if (totalScore === 1) {
+                        message += "<i>Nice try! You've dipped your toe into the Stray Kids pool. Dive in a bit more, and you'll be swimming in fun facts!</i>";
+                    } else if (totalScore === 2) {
+                        message += "<i>You're on the Stray path, but you might need a map! Don't worry; even the greatest explorers took a few detours.</i>";
+                    } else if (totalScore === 3) {
+                        message += "<i>Cheers for you! You're like Stray Kids' distant cousin. Close, but not close enough to borrow their stuff. Keep going; family reunions get better!</i>";
+                    } else if (totalScore === 4) {
+                        message += "<i>Fantastic Four! You're not just a fan; you're a musical explorer. Get ready to conquer the Stray Kids kingdom with your fantastic vibes!</i>";
+                    } else {
+                        message += "<i>High Five! You're a Stray Genius. You've earned your honorary Stray Kids diploma!</i>";
+                    }
+        
+                    $('#total-score').css('border-color', '#acd5e4');
+                    $('#total-score').html(message);
+                }
+
+                $(window).scroll(function() {
+                    // If scroll position is below the #text element, fade in the image; otherwise, fade it out
+                    if ($(this).scrollTop() > $('#text').offset().top) {
+                        $('#backToTop').css('opacity', 1);
+                    } else {
+                        $('#backToTop').css('opacity', 0);
+                    }
+                });
+            });
+        </script>        
+
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#text">Question 1</a></li>
+                    <li><a href="#q2">Question 2</a></li>
+                    <li><a href="#q3">Question 3</a></li>
+                    <li><a href="#q4">Question 4</a></li>
+                    <li><a href="#q5">Question 5</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="welcome">
+            <div id="text">
+                <h1><b>Welcome</b> to our survey!</h1>
+                <h3>Can you choose the right answer on Stray Kids quiz? Test your knowledge on this quiz and compare your score to others.</h3>
+                
+            </div>
+        </div>
+
+            <div class="question">
+                <h2>Question 1</h2>
+                <p>Which song did Stray Kids collaborate with LiSA ?</p>
+
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="Winter falls">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer correct" value="Social Path">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="Lonely St.">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" id="q2" value="Venom">
+            </div>
+
+            <div class="question">
+                <h2>Question 2</h2>
+                <p>When is Hyujin's Birthday ?</p>
+        
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;"  type="button" class="answer correct" value="March 20, 2000">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;"  type="button" class="answer wrong" value="March 22, 2000">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;"  type="button" class="answer wrong" value="May 20, 2000">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;"  type="button" class="answer wrong" id="q3" value="May 22, 2000">
+            </div>
+
+            <div class="question">
+                <h2>Question 3</h2>
+                <p>Which of the following member is good at bowling ?</p>
+        
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="Bang Chan">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="Felix">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="Han">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer correct" id="q4" value="Seungmin">
+            </div>
+        
+            <div class="question">
+                <h2>Question 4</h2>
+                <p>What is Hyujin's dog's name ?</p>
+        
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer correct" value="Kkami">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="Asumi">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="Moongi">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" id="q5" value="Uno">
+            </div>
+        
+            <div class="question">
+                <h2>Question 5</h2>
+                <p>How many cats does Lee Know have ?</p>
+            
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="1">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="2">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer correct" value="3">
+                <input style="font-family: 'Oswald', sans-serif; font-weight: bold;font-size: 15px;" type="button" class="answer wrong" value="4">
+            </div>
+
+            <h6>- Finish - </h6>
+
+            <div id="total-score"></div>
+
+            <div id="backToTop">
+                <a href="#welcome"><img src="backToTop.jpg" alt="backToTop"/></a>
+            </div>
+
+        <footer>
+            <h5>Thanks for becoming a STAY!</h5>
+        </footer>
+    </body>
+
+</html>

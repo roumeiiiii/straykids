@@ -1,0 +1,182 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: white;
+    margin: 0 auto;
+}
+
+header{
+    background-color: #466995;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+ul{
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+li{
+    color: lavender;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    width: 80px;
+}
+
+li a{
+    color: #FFF;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #DBE9EE;
+  }
+
+h1{
+    color: #466995;
+    font-weight: lighter;
+}
+
+h2{
+    font-family: 'Oswald', sans-serif;
+    color: #333;
+    font-weight: lighter;
+    padding-bottom: 10px;
+    text-shadow: 5px 5px 3px grey;
+}
+
+h3{
+    color: black;
+    font-weight: lighter;
+}
+
+h5{
+    color: #466995;
+    padding: 15px;
+    font-size: 15px;
+}
+
+h6{
+    font-family: 'Courier New', Courier, monospace;
+    color: #466995;
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: lighter;
+    padding-bottom: 60px;
+}
+
+p{
+    font-family: 'Oswald', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+footer{
+    font-family: 'Oswald', sans-serif;
+    background-color: #DBE9EE;
+    height: 50px;
+    text-align: center;
+}
+
+#welcome{
+    font-family: 'Oswald', sans-serif;
+    background-color: lavender;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    top: 80px;
+    background-image: url(straykids.jpg);
+    background-size: cover;
+    height: 400px;
+}
+
+#text{
+    background-color: beige;
+    opacity: 0.8;
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+}
+
+.question{
+    text-align: center;
+    position: relative;
+    top: 90px;
+    margin:90px 70px 150px;
+    padding-bottom: 150px;
+    border-bottom: 1px solid #466995;
+}
+
+.answer{
+    display: inline-block;
+    border: 1px solid #466995;
+    width: 40%;
+    margin: 5px;
+    padding: 10px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+}
+
+.answer:hover{
+    background-color: #DBE9EE;
+}
+
+/* Style for correct answer */
+.answer.correct.selected {
+    background-color: green !important;
+    color: white;
+}
+
+/* Style for wrong answer */
+.answer.wrong.selected {
+    background-color: red !important; 
+    color: white;
+}
+
+.answered .answer:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.answer.selected {
+    cursor: default !important; /* Set cursor to default for selected answer */
+}
+
+.answered .answer{
+    cursor: default !important; /* Set cursor to default for selected answer */
+}
+
+#total-score {
+    margin: 50px;
+    padding: 20px;
+    border: 5px double transparent;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #466995;
+    font-weight: lighter;
+    font-family: 'Oswald', sans-serif;
+}
+
+#backToTop img{
+    position: fixed;
+    width: 50px;
+    right: 20px;
+    bottom: 10px;
+    border-radius: 50px;
+}
